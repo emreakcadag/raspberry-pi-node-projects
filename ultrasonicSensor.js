@@ -25,9 +25,9 @@ const watchHCSR04 = () => {
             let delay = diff / 2 / MICROSECDONDS_PER_CM
 
             if (delay > 80) {
-                delay = 80
+                delay = 100
             } else if (delay < 10) {
-                delay = 2
+                delay = 10
             } else {
                 delay *= 2
             }
