@@ -34,6 +34,8 @@ const watchHCSR04 = () => {
                 } else {
                     setBuzzer(delay)
                 }
+            } else {
+                buzzer.digitalWrite(0)
             }
         }
     });
