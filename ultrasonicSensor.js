@@ -28,16 +28,22 @@ const watchHCSR04 = () => {
 
 watchHCSR04();
 
+let readyForNew = true
+
 async function setBuzzer(delay) {
-    setTimeout(()=>{
-        buzzer.digitalWrite(1)
-        setTimeout(()=> {
-            buzzer.digitalWrite(0)
-        }, 50)
-    }, delay)
+    if (readyForNew === true) {
+        readyForNew = false
+        setTimeout(() => {
+            buzzer.digitalWrite(1)
+            setTimeout(() => {
+                buzzer.digitalWrite(0)
+                readyForNew = true
+            }, delay)
+        }, delay)
+    }
 }
 
 // Trigger a distance measurement once per second
 setInterval(() => {
     trigger.trigger(10, 1); // Set trigger high for 10 microseconds
-}, 1000);
+}, 500);
