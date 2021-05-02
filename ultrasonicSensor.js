@@ -5,7 +5,7 @@ const MICROSECDONDS_PER_CM = 1e6 / 34321;
 
 const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
 const echo = new Gpio(24, {mode: Gpio.INPUT, alert: true});
-const buzzer = new Gpio(25, {mode: Gpio.OUTPUT, alert: true});
+const buzzer = new Gpio(25, {mode: Gpio.OUTPUT});
 
 trigger.digitalWrite(0); // Make sure trigger is low
 buzzer.digitalWrite(0); // Make sure buzzer is low
@@ -29,7 +29,7 @@ const watchHCSR04 = () => {
 watchHCSR04();
 
 function setBuzzer(distance) {
-    buzzer.trigger(10 * 1000 * distance, 1);
+    buzzer.trigger(10 * 10000 * distance, 1);
 }
 
 // Trigger a distance measurement once per second
