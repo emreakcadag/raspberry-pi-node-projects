@@ -23,7 +23,7 @@ const watchHCSR04 = () => {
             console.log(diff / 2 / MICROSECDONDS_PER_CM);
 
 
-            if ((diff / 2 / MICROSECDONDS_PER_CM) > 1 || (diff / 2 / MICROSECDONDS_PER_CM) < 1000) {
+            if ((diff / 2 / MICROSECDONDS_PER_CM) > 1) {
                 let delay = 2 * (diff / 2 / MICROSECDONDS_PER_CM)
 
                 if (delay > 100) {
@@ -34,8 +34,6 @@ const watchHCSR04 = () => {
                 } else {
                     setBuzzer(delay)
                 }
-            } else {
-                buzzer.digitalWrite(0)
             }
         }
     });
