@@ -38,7 +38,7 @@ async function setBuzzer(delay) {
             setTimeout(() => {
                 buzzer.digitalWrite(0)
                 readyForNew = true
-            }, delay)
+            }, 50)
         }, delay)
     }
 }
