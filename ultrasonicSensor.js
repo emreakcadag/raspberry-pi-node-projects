@@ -21,7 +21,18 @@ const watchHCSR04 = () => {
             const endTick = tick;
             const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
             console.log(diff / 2 / MICROSECDONDS_PER_CM);
-            setBuzzer(10 * (diff / 2 / MICROSECDONDS_PER_CM))
+
+            let delay = 10 * (diff / 2 / MICROSECDONDS_PER_CM)
+
+            if (delay > 200) {
+                delay = 200
+            }
+
+            if (delay < 10) {
+                delay = 10
+            }
+
+            setBuzzer(delay)
         }
     });
 };
