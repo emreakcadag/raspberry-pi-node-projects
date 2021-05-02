@@ -21,21 +21,21 @@ const watchHCSR04 = () => {
             const endTick = tick;
             const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
             console.log(diff / 2 / MICROSECDONDS_PER_CM);
-            setBuzzer(diff / 2 / MICROSECDONDS_PER_CM)
+            setBuzzer(10 * (diff / 2 / MICROSECDONDS_PER_CM))
         }
     });
 };
 
 watchHCSR04();
 
-function setBuzzer(distance) {
+async function setBuzzer(delay) {
+    await sleep(delay)
     buzzer.digitalWrite(1)
-    setTimeout(() => {
-        buzzer.digitalWrite(0)
-    }, 5 * distance)
+    await sleep(delay)
+    buzzer.digitalWrite(0)
 }
 
 // Trigger a distance measurement once per second
 setInterval(() => {
     trigger.trigger(10, 1); // Set trigger high for 10 microseconds
-}, 500);
+}, 100);
