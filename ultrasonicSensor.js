@@ -26,13 +26,12 @@ const watchHCSR04 = () => {
 
             if (delay > 200) {
                 delay = 200
-            }
-
-            if (delay < 10) {
+                setBuzzer(delay)
+            } else if (delay < 8) {
                 buzzer.digitalWrite(1)
+            } else {
+                setBuzzer(delay)
             }
-
-            setBuzzer(delay)
         }
     });
 };
