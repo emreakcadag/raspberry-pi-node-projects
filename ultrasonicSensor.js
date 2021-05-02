@@ -32,7 +32,7 @@ function setBuzzer(distance) {
     buzzer.digitalWrite(1)
     setTimeout(() => {
         buzzer.digitalWrite(0)
-    }, distance)
+    }, 5 * distance)
 }
 
 // Trigger a distance measurement once per second
