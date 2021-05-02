@@ -25,10 +25,9 @@ const watchHCSR04 = () => {
             let delay = 2 * (diff / 2 / MICROSECDONDS_PER_CM)
 
             if (delay > 100) {
-                delay = 100
-                setBuzzer(delay)
+                setBuzzer(100)
             } else if (delay < 8) {
-                buzzer.digitalWrite(1)
+                setBuzzer(8)
             } else {
                 setBuzzer(delay)
             }
