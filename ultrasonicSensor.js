@@ -29,7 +29,7 @@ const watchHCSR04 = () => {
             }
 
             if (delay < 10) {
-                delay = 10
+                delay = 2
             }
 
             setBuzzer(delay)
