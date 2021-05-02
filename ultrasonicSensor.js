@@ -14,17 +14,23 @@ const watchHCSR04 = () => {
     let startTick;
 
     echo.on('alert', (level, tick) => {
-        if (level == 1) {
+
+        if (level === 1) {
             startTick = tick;
         } else {
             const endTick = tick;
             const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
             console.log(diff / 2 / MICROSECDONDS_PER_CM);
+            setBuzzer(diff / 2 / MICROSECDONDS_PER_CM)
         }
     });
 };
 
 watchHCSR04();
+
+function setBuzzer(distance) {
+    buzzer.trigger(10 * 1000 * distance, 1);
+}
 
 // Trigger a distance measurement once per second
 setInterval(() => {
