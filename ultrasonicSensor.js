@@ -30,12 +30,9 @@ watchHCSR04();
 
 function setBuzzer(distance) {
     buzzer.digitalWrite(1)
-    setInterval(() => {
-        setTimeout(() => {
-            buzzer.digitalWrite(0)
-        }, 30 * distance)
-
-    }, 30 * distance);
+    setTimeout(() => {
+        buzzer.digitalWrite(0)
+    }, distance)
 }
 
 // Trigger a distance measurement once per second
