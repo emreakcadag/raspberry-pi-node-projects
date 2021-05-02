@@ -29,10 +29,12 @@ const watchHCSR04 = () => {
 watchHCSR04();
 
 async function setBuzzer(delay) {
-    await sleep(delay)
-    buzzer.digitalWrite(1)
-    await sleep(delay)
-    buzzer.digitalWrite(0)
+    setTimeout(()=>{
+        buzzer.digitalWrite(1)
+        setTimeout(()=> {
+            buzzer.digitalWrite(0)
+        }, delay)
+    }, delay)
 }
 
 // Trigger a distance measurement once per second
