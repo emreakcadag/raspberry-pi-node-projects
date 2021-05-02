@@ -33,7 +33,7 @@ async function setBuzzer(delay) {
         buzzer.digitalWrite(1)
         setTimeout(()=> {
             buzzer.digitalWrite(0)
-        }, delay)
+        }, 50)
     }, delay)
 }
 
